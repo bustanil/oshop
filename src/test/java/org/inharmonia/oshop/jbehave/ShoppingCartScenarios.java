@@ -2,6 +2,8 @@ package org.inharmonia.oshop.jbehave;
 
 import org.jbehave.core.configuration.Configuration;
 import org.jbehave.core.configuration.MostUsefulConfiguration;
+import org.jbehave.core.failures.FailingUponPendingStep;
+import org.jbehave.core.failures.RethrowingFailure;
 import org.jbehave.core.io.LoadFromClasspath;
 import org.jbehave.core.io.StoryPathResolver;
 import org.jbehave.core.io.UnderscoredCamelCaseResolver;
@@ -21,6 +23,8 @@ public class ShoppingCartScenarios extends JUnitStory {
         StoryPathResolver storyPathResolver = new UnderscoredCamelCaseResolver(".story");
         return new MostUsefulConfiguration()
             .useStoryPathResolver(storyPathResolver)
+            .useFailureStrategy(new RethrowingFailure())
+            .usePendingStepStrategy(new FailingUponPendingStep())
             // where to find the org.inharmonia.oshop.domain
             .useStoryLoader(new LoadFromClasspath(this.getClass()))
             // CONSOLE and TXT reporting
