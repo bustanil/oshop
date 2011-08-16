@@ -1,8 +1,10 @@
 package org.inharmonia.oshop.jbehave;
 
-import org.hamcrest.Matchers;
+import org.inharmonia.oshop.domain.Category;
+import org.inharmonia.oshop.domain.Product;
+import org.inharmonia.oshop.domain.ShoppingCart;
+import org.inharmonia.oshop.domain.ShoppingCartItem;
 import org.jbehave.core.annotations.Given;
-import org.jbehave.core.annotations.Pending;
 import org.jbehave.core.annotations.Then;
 import org.jbehave.core.annotations.When;
 

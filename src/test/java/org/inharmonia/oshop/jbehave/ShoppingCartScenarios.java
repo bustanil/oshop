@@ -21,7 +21,7 @@ public class ShoppingCartScenarios extends JUnitStory {
         StoryPathResolver storyPathResolver = new UnderscoredCamelCaseResolver(".story");
         return new MostUsefulConfiguration()
             .useStoryPathResolver(storyPathResolver)
-            // where to find the org.inharmonia.oshop.jbehave
+            // where to find the org.inharmonia.oshop.domain
             .useStoryLoader(new LoadFromClasspath(this.getClass()))
             // CONSOLE and TXT reporting
             .useStoryReporterBuilder(new StoryReporterBuilder().withDefaultFormats().withFormats(Format.CONSOLE, Format.TXT));

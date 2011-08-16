@@ -1,4 +1,4 @@
-package org.inharmonia.oshop.jbehave;
+package org.inharmonia.oshop.domain;
 
 import java.util.ArrayList;
 import java.util.List;
