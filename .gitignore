@@ -1,6 +1,6 @@
 *.class
-*.ipr
-*.iml
-*.iws
+oshop.ipr
+oshop.iml
+oshop.iws
 target
 
