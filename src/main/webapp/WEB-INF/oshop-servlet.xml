@@ -5,9 +5,11 @@
        xmlns:aop="http://www.springframework.org/schema/aop"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.0.xsd">
 
-    <bean id="shoppingCart" class="org.inharmonia.oshop.domain.ShoppingCart" scope="session" />
+    <bean id="shoppingCart" class="org.inharmonia.oshop.web.domain.ShoppingCart" scope="session">
+        <aop:scoped-proxy/>
+    </bean>
 
-    <context:component-scan base-package="org.inharmonia.oshop.controller"/>
+    <context:component-scan base-package="org.inharmonia.oshop.web.controller"/>
 
     <bean id="jspViewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
         <property name="viewClass" value="org.springframework.web.servlet.view.JstlView"/>

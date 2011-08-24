@@ -1,9 +1,9 @@
 package org.inharmonia.oshop.jbehave;
 
-import org.inharmonia.oshop.domain.Category;
-import org.inharmonia.oshop.domain.Product;
-import org.inharmonia.oshop.domain.ShoppingCart;
-import org.inharmonia.oshop.domain.ShoppingCartItem;
+import org.inharmonia.oshop.core.domain.Category;
+import org.inharmonia.oshop.core.domain.Product;
+import org.inharmonia.oshop.web.domain.ShoppingCart;
+import org.inharmonia.oshop.web.domain.ShoppingCartItem;
 import org.jbehave.core.annotations.Given;
 import org.jbehave.core.annotations.Then;
 import org.jbehave.core.annotations.When;
@@ -11,7 +11,8 @@ import org.jbehave.core.annotations.When;
 import java.math.BigDecimal;
 
 import static org.hamcrest.Matchers.equalTo;
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertThat;
 
 public class ShoppingCartSteps {
 

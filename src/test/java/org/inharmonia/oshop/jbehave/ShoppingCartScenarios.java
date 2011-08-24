@@ -25,7 +25,7 @@ public class ShoppingCartScenarios extends JUnitStory {
             .useStoryPathResolver(storyPathResolver)
             .useFailureStrategy(new RethrowingFailure())
             .usePendingStepStrategy(new FailingUponPendingStep())
-            // where to find the org.inharmonia.oshop.domain
+            // where to find the org.inharmonia.oshop.core.domain
             .useStoryLoader(new LoadFromClasspath(this.getClass()))
             // CONSOLE and TXT reporting
             .useStoryReporterBuilder(new StoryReporterBuilder().withDefaultFormats().withFormats(Format.CONSOLE, Format.TXT));

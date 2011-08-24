@@ -1,4 +1,4 @@
-package org.inharmonia.oshop.domain;
+package org.inharmonia.oshop.core.domain;
 
 
 import java.math.BigDecimal;

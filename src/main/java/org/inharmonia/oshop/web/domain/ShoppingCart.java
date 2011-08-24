@@ -1,4 +1,6 @@
-package org.inharmonia.oshop.domain;
+package org.inharmonia.oshop.web.domain;
+
+import org.inharmonia.oshop.core.domain.Product;
 
 import java.util.ArrayList;
 import java.util.Collections;
