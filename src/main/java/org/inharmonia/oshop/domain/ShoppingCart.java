@@ -1,6 +1,5 @@
 package org.inharmonia.oshop.domain;
 
-import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -9,9 +8,7 @@ public class ShoppingCart {
 
     private List<ShoppingCartItem> items;
 
-    public ShoppingCart() {
-        addItem(new Product(1L, "Strategi Memasarkan Produk Baru", "", new BigDecimal(32800d), null));
-    }
+    public ShoppingCart() {}
 
     public void addItem(Product product) {
         addItem(product, 1);
@@ -44,7 +41,7 @@ public class ShoppingCart {
         }
         ShoppingCartItem item = getItemByProductId(product.getId());
         if (item == null) {
-            items.add(new ShoppingCartItem(product.getId(), quantity, product.getPrice()));
+            items.add(new ShoppingCartItem(product.getId(), product.getName(), quantity, product.getPrice()));
         } else {
             item.addQuantity(quantity);
         }

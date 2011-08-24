@@ -60,4 +60,13 @@ public class Product {
     public Category getCategory() {
         return category;
     }
+
+    public String getCategoryName(){
+        if(getCategory() != null){
+            return getCategory().getName();
+        }
+        else {
+            return "";
+        }
+    }
 }
