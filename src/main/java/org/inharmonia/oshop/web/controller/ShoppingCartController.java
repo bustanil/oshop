@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import java.util.Map;
+
 @Controller
 @RequestMapping("/cart")
 public class ShoppingCartController {
@@ -31,6 +33,16 @@ public class ShoppingCartController {
     @RequestMapping("/delete")
     public String delete(@RequestParam("pid") Long id) {
         shoppingCart.removeByProductId(id);
+        return "redirect:/cart.php";
+    }
+
+    @RequestMapping(value = "/update", method = RequestMethod.POST)
+    public String update(@RequestParam Map<String, String> parameterMap){
+        for (String key : parameterMap.keySet()) {
+            Long productId = Long.valueOf(key.split("-")[1]);
+            Integer quantity = Integer.valueOf(parameterMap.get(key));
+            shoppingCart.updateQuantity(productId, quantity);
+        }
         return "redirect:/cart.php";
     }
 
