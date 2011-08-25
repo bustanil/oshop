@@ -19,12 +19,12 @@
             <td><input type="text" value="${item.quantity}" maxlength="2" size="2"/></td>
             <td>${item.price}</td>
             <td>${item.subTotal}</td>
-            <td><a href="#">X</a></td>
+            <td><a href="/cart/delete.php?pid=${item.productId}">X</a></td>
         </tr>
         </c:forEach>
         <tr align="right">
             <td colspan="2"><input type="button" value="Update" /></td>
-            <td colspan="3">Total: 32.800</td>
+            <td colspan="3">Total: ${shoppingCart.total}</td>
         </tr>
     </table>
 

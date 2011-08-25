@@ -23,9 +23,16 @@ public class ShoppingCartController {
     }
 
     @RequestMapping("/add")
-    public String add(@RequestParam("pid") Long id){
+    public String add(@RequestParam("pid") Long id) {
         shoppingCart.addItem(Products.getProductById(id));
         return "redirect:/cart.php";
     }
+
+    @RequestMapping("/delete")
+    public String delete(@RequestParam("pid") Long id) {
+        shoppingCart.removeByProductId(id);
+        return "redirect:/cart.php";
+    }
+
 
 }

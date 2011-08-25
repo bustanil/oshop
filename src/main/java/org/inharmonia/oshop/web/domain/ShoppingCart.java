@@ -2,6 +2,7 @@ package org.inharmonia.oshop.web.domain;
 
 import org.inharmonia.oshop.core.domain.Product;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -62,5 +63,13 @@ public class ShoppingCart {
 
     public List<ShoppingCartItem> getItems() {
         return Collections.unmodifiableList(items);
+    }
+
+    public BigDecimal getTotal(){
+        BigDecimal total = BigDecimal.ZERO;
+        for (ShoppingCartItem item : items) {
+            total = total.add(item.getSubTotal());
+        }
+        return total;
     }
 }
