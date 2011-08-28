@@ -1,4 +1,4 @@
-package org.inharmonia.oshop.jbehave;
+package org.inharmonia.oshop.web;
 
 import org.jbehave.core.configuration.Configuration;
 import org.jbehave.core.configuration.MostUsefulConfiguration;
@@ -15,7 +15,7 @@ import org.jbehave.core.steps.InstanceStepsFactory;
 
 import java.util.List;
 
-public class ShoppingCartScenarios extends JUnitStory {
+public class ShoppingScenarios extends JUnitStory {
 
     // Here we specify the configuration, starting from default MostUsefulConfiguration, and changing only what is needed
     @Override
@@ -35,6 +35,6 @@ public class ShoppingCartScenarios extends JUnitStory {
     @Override
     public List<CandidateSteps> candidateSteps() {
         // varargs, can have more that one steps classes
-        return new InstanceStepsFactory(configuration(), new ShoppingCartSteps()).createCandidateSteps();
+        return new InstanceStepsFactory(configuration(), new ShoppingSteps()).createCandidateSteps();
     }
 }

@@ -29,6 +29,8 @@
             <td colspan="3">Total: ${shoppingCart.total}</td>
         </tr>
     </table>
+    <a href="/item.php">Kembali berbelanja</a>
+    <a href="/checkout.php">Selesai</a>
 </form>
 
 </body>

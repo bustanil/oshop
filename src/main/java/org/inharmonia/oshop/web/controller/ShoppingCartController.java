@@ -4,7 +4,6 @@ import org.inharmonia.oshop.core.domain.Products;
 import org.inharmonia.oshop.web.domain.ShoppingCart;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -19,8 +18,8 @@ public class ShoppingCartController {
     private ShoppingCart shoppingCart;
 
     @RequestMapping(method = RequestMethod.GET)
-    public String get(Model model) {
-        model.addAttribute("shoppingCart", shoppingCart);
+    public String get(Map<String, Object> modelMap) {
+        modelMap.put("shoppingCart", shoppingCart);
         return "cart/index";
     }
 
@@ -46,5 +45,7 @@ public class ShoppingCartController {
         return "redirect:/cart.php";
     }
 
-
+    public void setShoppingCart(ShoppingCart shoppingCart) {
+        this.shoppingCart = shoppingCart;
+    }
 }

@@ -7,11 +7,14 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+import static com.google.common.base.Preconditions.checkArgument;
+
 public class ShoppingCart {
 
     private List<ShoppingCartItem> items;
 
-    public ShoppingCart() {}
+    public ShoppingCart() {
+    }
 
     public void addItem(Product product) {
         addItem(product, 1);
@@ -32,9 +35,14 @@ public class ShoppingCart {
     }
 
     public void updateQuantity(Long productId, Integer quantity) {
+        checkArgument(quantity >= 0, "Quantity should be 0 or greater");
         ShoppingCartItem item = getItemByProductId(productId);
         if (item != null) {
-            item.setQuantity(quantity);
+            if (quantity == 0) {
+                removeByProductId(productId);
+            } else {
+                item.setQuantity(quantity);
+            }
         }
     }
 
@@ -65,11 +73,17 @@ public class ShoppingCart {
         return Collections.unmodifiableList(items);
     }
 
-    public BigDecimal getTotal(){
+    public BigDecimal getTotal() {
         BigDecimal total = BigDecimal.ZERO;
         for (ShoppingCartItem item : items) {
             total = total.add(item.getSubTotal());
         }
         return total;
+    }
+
+    public void clear() {
+        if (items != null) {
+            items.clear();
+        }
     }
 }
