@@ -1,6 +1,7 @@
 package org.inharmonia.oshop.web.controller;
 
 import org.inharmonia.oshop.web.domain.UserRegistration;
+import org.inharmonia.oshop.web.validator.UserRegistrationValidator;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -25,8 +26,12 @@ public class UserController {
     }
 
     @RequestMapping(value = "/register", method = RequestMethod.POST)
-    public String register(@Valid UserRegistration userRegistration, BindingResult bindingResult){
-        // TODO save to database, put to session
+    public String register(Map<String, Object> modelMap, @Valid UserRegistration userRegistration, BindingResult bindingResult){
+        new UserRegistrationValidator().validate(userRegistration, bindingResult);
+        if(bindingResult.hasErrors()){
+            modelMap.put("userRegistration", userRegistration);
+            return "user/register";
+        }
         return "redirect:/item.php";
     }
 

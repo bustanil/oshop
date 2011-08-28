@@ -5,7 +5,9 @@
 <head><title>User Registration</title></head>
 <body>
     <h3>User Registration</h3>
+
     <form:form method="POST" modelAttribute="userRegistration">
+        <form:errors path="*" />
         <table>
             <tr><td>Full Name</td><td><form:input path="user.fullName"/></td></tr>
             <tr><td>Email</td><td><form:input path="user.email"/></td></tr>
